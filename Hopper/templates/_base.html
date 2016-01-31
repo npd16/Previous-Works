@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Hopper</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+    <script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJ4vzyatS1gGT736reT13vhBTschYEwro&libraries=places"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+    
+    
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a id="brand"class="navbar-brand" href="/">Hopper</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li role="presentation"><a href="/">Home</a></li>
+        <li role="presentation"><a href="/about" method="POST">About Us</a></li>
+        <li role="presentation"><a href="/contact" method="POST">Contact Us</a></li>
+       
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+        {% if user_email %}
+        <a href="{{ logout_url }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+        {% else %}
+        <a href="{{ login_url }}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        {% endif %}
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+  </head>
+  <body>
+    {% block bodycontent %}{% endblock %}
+	
+	<!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  </body>
+</html>

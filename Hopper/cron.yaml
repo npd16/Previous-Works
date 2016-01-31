@@ -1,0 +1,5 @@
+cron:
+- description: daily cleanup
+  url: /cleanup
+  schedule: every day 04:00
+  timezone: America/New_York

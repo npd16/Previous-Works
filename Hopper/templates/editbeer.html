@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+{% block bodycontent %}
+<h5> {{beerlist.barname}} </h5>
+<form class="form-horizontal" role="form" method="POST" action="/editreceived">
+    <div class="form-group">
+        <label for="name" id ="name_label" class="col-sm-offset-2 col-sm-2 control-label">Add Beer</label>
+        <div class=" col-sm-4">
+            <input name="newbeer" type="text" class="form-control" value="">
+            <input value='{{barid}}' type="text" name="name" style="visibility:hidden" >
+        </div>
+        <button class=" col-sm-offset-5 col-sm-2 col-sm-offset-5" type='submit'>Submit</button>
+    </div>
+</form>
+{% endblock %}

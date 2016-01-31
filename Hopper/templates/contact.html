@@ -1,0 +1,35 @@
+{% extends "_base.html" %}
+{% block bodycontent %}
+{% if user_email%}
+<div id='contact_form'>
+<form class="form-horizontal" role="form" method="POST" action="/thanks">
+    <div class="form-group">
+        <label for="name" id ="name_label" class="col-sm-4 control-label">Name</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="First & Last Name" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="message" id ="message_label" class="col-sm-4 control-label">Message</label>
+        <div class="col-sm-4">
+            <textarea class="col-sm-4 form-control" rows="4" name="user_message"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-6 col-sm-offset-3">
+            <input id="contact_submit" type="submit" value="Send" class="btn btn-primary">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-6 col-sm-offset-2">
+            <! Will be used to display an alert to the user>
+        </div>
+    </div>
+</form>
+</div>
+{% else %}
+	<p>Please Sign In to Send an Email</p>
+    <a href="{{ login_url }}"><button class="btn">Sign In</button></a>\
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+{% block bodycontent %}
+
+<html>
+  <head>
+  <meta http-equiv="refresh" content="2; URL=/barinfo?name={{barid}}">
+  </head>
+  <body>
+    <h3>Boom!</h3>
+    <div id="text">Your changes have been saved!</div>
+    <div id="text">Click <a href="/barinfo?name={{barid}}"> here </a> if you are not redirected.</div>
+  </body>
+</html>
+{% endblock %}

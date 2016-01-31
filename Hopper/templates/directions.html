@@ -1,0 +1,70 @@
+{% extends "_base.html" %}
+{% block bodycontent %}
+<h2> Directions to {{name}}</h2><br/><br/>
+
+<div id="outer">
+<div class="col-xs-1"></div>
+<div class="col-xs-5" id="map"></div>
+<div class="col-xs-1"></div>
+<div class="col-xs-3" id="directionsPanel"></div>
+</div>
+<div style="clear:both"></div>
+
+
+<script>
+var start = '{{start}}';
+var end = '{{end}}';
+
+
+google.maps.event.addDomListener(window, "load", initMap);
+
+var GeoMarker;
+var infowindow, service;
+var pittsburgh = {lat: 40.4446, lng: -79.9533};
+var place;
+var start, end;
+var rendererOptions = {
+    draggable: true
+  };
+var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);;
+var directionsService = new google.maps.DirectionsService();
+
+
+function initMap(){
+	infowindow = new google.maps.InfoWindow();
+	directionsDisplay = new google.maps.DirectionsRenderer();
+	
+	//create new map
+	map = new google.maps.Map(document.getElementById('map'), {
+  	  center: pittsburgh,
+  	  zoom: 15
+ 	});
+  	directionsDisplay.setMap(map);
+  	directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+
+
+var request = {
+        origin:start, 
+        destination:end,
+        travelMode: google.maps.DirectionsTravelMode.WALKING
+    };
+    directionsService.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+        document.getElementById("directionsPanel").style.visibility = "visible";
+      }
+      else{
+       console.log("Unable to implement Directions Service due to: " + status);
+      }
+    });
+
+
+
+}//end initMap
+
+
+</script>
+
+
+{% endblock %}
+

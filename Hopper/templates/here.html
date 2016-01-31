@@ -1,0 +1,63 @@
+{% extends "_base.html" %}
+{% block bodycontent %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script  type="text/javascript" src="/static/script0003.js"></script>
+
+<div id='barwrap'>
+<h5><p>{{beerlist.barname}}</p></h5>
+
+<br><br>
+<div id='beerlist'>
+<h3>BEERS ON DRAFT:</h3>
+<ul>
+{% for beer in beerlist.beers %}
+	<li>{{ beer }}</li>
+{% endfor %}
+</ul>
+</div>
+<div id='specials'>
+<h3>SPECIALS:</h3>
+<ul>
+{% for special in beerlist.specials %}
+	<li>{{ special }}</li>
+{% endfor %}
+</ul>
+</div>
+</div>
+
+<div id="commentwrap">
+<div id = 'comments'> 
+{% for comment in beerlist.comments %}
+<i>{{comment.time_created}}</i><br>
+{{comment.text}}<br><br>
+{% endfor %}
+</div>
+</div>
+
+<p>Add a Comment</p>
+<div id='comment_form'>	
+  <form class="form-horizontal" role="form" method="post" action="/comment">
+  <div class="form-group">
+  	<div class="col-sm-offset-4 col-sm-4">
+	  <textarea class=".form-control" rows="3" name='comment' id='comment'></textarea>
+	</div>
+  </div>
+  <div class="form-group">
+  	<div class="col-sm-offset-4 col-sm-4">
+      <input type="hidden" name="id" value="{{barid}}">
+	  <input type="submit">
+	</div>
+  </div>
+  </form>
+</div>
+
+</div>
+<script>
+	/*commentText = document.getElementById('commentText').value;
+	barID = '{{barid}}';
+	function postComment(){
+		$.post('/comment', {'comment': commentText, 'id': barID}, function(){});
+		
+	}*/
+</script>
+{% endblock %}

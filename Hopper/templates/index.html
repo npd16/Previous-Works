@@ -1,0 +1,19 @@
+{% extends "_base.html" %}
+{% block bodycontent %}
+<div id="outer">
+<input id="pac-input" class="controls" type="text" placeholder="Change Location">
+<div class="col-xs-1"></div>
+<div class="col-xs-5" id="map"></div>
+<div class="col-xs-1"></div>
+<div class="col-xs-3" id="list"></div>
+</div>
+<div style="clear:both"></div>
+<script  type="text/javascript" src="/static/script0003.js"></script>
+<script src="/static/geolocationmarker-compiled.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<div id="directionsPanel" style="visibility:hidden">
+<form id="form1" action="/barinfo" method="GET" style="visibility:hidden">
+<input id='barname' type="text" name="name" style="visibility:hidden" >
+<input id='submit' type="submit" value="Submit" style="visibility:hidden">
+</form>
+{% endblock %}
